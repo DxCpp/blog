@@ -1,0 +1,15 @@
+---
+layout: post
+title: Как узнать модель материнской платы через CMD
+date: '2021-11-15T18:11:00.007+03:00'
+author: Rishat
+tags:
+- Windows
+- CMD
+modified_time: '2021-11-17T18:20:20.907+03:00'
+thumbnail: https://blogger.googleusercontent.com/img/a/AVvXsEjJJjcbxn32x6S3Hb3ZbA4ye7Vspj4zV3pqnCv_ieGvZHdb4cTG7xgtRXP2IeG4DOpLnR2BTia86-Pbkzoyd1qklY0FKTcwrpHkjnrUwnqeFe58F9rImpnq8Zv5TB1mMYN9uSIYERUkp7bMB4rh6IzIU4_WzzJuky1I43tc6KjcaBjCAioWDLm2X0zb7g=s72-w640-c-h202
+blogger_id: tag:blogger.com,1999:blog-632559424411275764.post-3051495323756592439
+blogger_orig_url: https://dxcpp.blogspot.com/2021/11/windows-wmic-microsoft.html
+---
+
+<p>Если вы с удовольствием пользуетесь командной строкой Windows, то вы можете с легкостью выяснить модель материнской платы при помощи мощного инструмента WMIC Microsoft.</p><p>С WMIC мы можем выполнить запрос baseboard чтобы проверить материнскую плату и несколько дополнительных параметров таких как серийный номер, ревизия и другая подробная информация о вашей материнке.</p><p>Давайте с вами попробуем на примере узнать производителя нашей материнской платы, модель и серийник с помощью WMIC.</p><p>Откройте командную строку (это можно сделать сочетанием клавиш <b>WIN + R</b> на клавитаре и введя команду <b>CMD</b>).</p><p>Кстати, командную строку не обязательно запускать от имени администратора.</p><p>Введите следующий текст в командной строке.</p><pre class="prettyprint linenums lang-cpp">wmic baseboard get product,Manufacturer,version,serialnumber<br /></pre> <div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/a/AVvXsEjJJjcbxn32x6S3Hb3ZbA4ye7Vspj4zV3pqnCv_ieGvZHdb4cTG7xgtRXP2IeG4DOpLnR2BTia86-Pbkzoyd1qklY0FKTcwrpHkjnrUwnqeFe58F9rImpnq8Zv5TB1mMYN9uSIYERUkp7bMB4rh6IzIU4_WzzJuky1I43tc6KjcaBjCAioWDLm2X0zb7g=s607" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="192" data-original-width="607" height="202" src="https://blogger.googleusercontent.com/img/a/AVvXsEjJJjcbxn32x6S3Hb3ZbA4ye7Vspj4zV3pqnCv_ieGvZHdb4cTG7xgtRXP2IeG4DOpLnR2BTia86-Pbkzoyd1qklY0FKTcwrpHkjnrUwnqeFe58F9rImpnq8Zv5TB1mMYN9uSIYERUkp7bMB4rh6IzIU4_WzzJuky1I43tc6KjcaBjCAioWDLm2X0zb7g=w640-h202" width="640" /></a></div>

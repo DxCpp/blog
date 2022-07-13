@@ -1,0 +1,14 @@
+---
+layout: post
+title: Очень частая ошибка в Linux
+date: '2021-12-10T14:17:00.006+03:00'
+author: Rishat
+tags:
+- Linux
+modified_time: '2021-12-22T12:51:13.368+03:00'
+thumbnail: https://blogger.googleusercontent.com/img/a/AVvXsEhsou1jgAiMS0u4cHCM430W2jVfOxpxvjcW1YZXS-Jat1e8OXtAI1394Hat0_3V8d4qlc6_b984r7yPotJMQy-eqvq4Czn17NNg4yckMev2Ylc5fTUZWxGwnxv_A-4igKvcMS4npb0gPSUMEb85qEVW-nnUhY_RTZJChUsF8PSGeslgsl5_OFc6Oi1EOA=s72-w640-c-h480
+blogger_id: tag:blogger.com,1999:blog-632559424411275764.post-6787520634963605661
+blogger_orig_url: https://dxcpp.blogspot.com/2021/12/linux.html
+---
+
+<p></p><div class="separator" style="clear: both; text-align: center;"><a href="https://blogger.googleusercontent.com/img/a/AVvXsEhsou1jgAiMS0u4cHCM430W2jVfOxpxvjcW1YZXS-Jat1e8OXtAI1394Hat0_3V8d4qlc6_b984r7yPotJMQy-eqvq4Czn17NNg4yckMev2Ylc5fTUZWxGwnxv_A-4igKvcMS4npb0gPSUMEb85qEVW-nnUhY_RTZJChUsF8PSGeslgsl5_OFc6Oi1EOA=s1148" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="862" data-original-width="1148" height="480" src="https://blogger.googleusercontent.com/img/a/AVvXsEhsou1jgAiMS0u4cHCM430W2jVfOxpxvjcW1YZXS-Jat1e8OXtAI1394Hat0_3V8d4qlc6_b984r7yPotJMQy-eqvq4Czn17NNg4yckMev2Ylc5fTUZWxGwnxv_A-4igKvcMS4npb0gPSUMEb85qEVW-nnUhY_RTZJChUsF8PSGeslgsl5_OFc6Oi1EOA=w640-h480" width="640" /></a></div><p></p><p><span style="font-family: courier;">blk_update_request: i/o error, dev fd0 sector 0 op 0x0 read flags 0x0 phys_seg 1 prio class 0</span></p><p>На вашем устройстве нет дисковода гибких дисков, но модуль драйвера гибких дисков установлен, поэтому у вас есть <span style="color: red;">/ dev / fd0</span>, и многие люди попытаются его использовать.</p><p><span style="font-family: courier;">sudo rmmod floppy<br />echo "blacklist floppy" | sudo tee /etc/modprobe.d/blacklist-floppy.conf<br />sudo dpkg-reconfigure initramfs-tools</span></p><p>При запуске Ubuntu на виртуальной машине под Microsoft Hyper-V, это связано с тем, что по умолчанию дисковод гибких дисков добавляется в конфигурацию виртуальной машины, но активируется неправильно. Но проверьте, есть ли у вас дискета в конфигурации VM, и попробуйте удалить его, прежде чем применять это исправление.</p>

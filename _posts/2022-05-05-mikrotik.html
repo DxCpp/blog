@@ -1,0 +1,14 @@
+---
+layout: post
+title: Правила защиты MikroTik от брутфорс
+date: '2022-05-05T15:41:00.003+03:00'
+author: Rishat
+tags:
+- MikroTik
+- Безопасность
+modified_time: '2022-05-05T16:00:44.988+03:00'
+blogger_id: tag:blogger.com,1999:blog-632559424411275764.post-3297004770106239966
+blogger_orig_url: https://dxcpp.blogspot.com/2022/05/mikrotik.html
+---
+
+<p>При первом подключении по SSH добавляем ip-адрес в список ssh_stage1, если менее чем через одну минуту приходит ещё один запрос на подключение, добавляем в список ssh_stage2 и т.д. После списка ssh_stage3 идет список blacklist<span></span></p><a name='more'></a><p></p><p><span style="font-family: courier;">ip firewall filter</span></p><p><span style="font-family: courier;">add chain=input protocol=tcp dst-port=22 connection-state=new \</span></p><p><span style="font-family: courier;">src-address-list=ssh_stage3 action=add-src-to-address-list address-list=blacklist \</span></p><p><span style="font-family: courier;">address-list-timeout=10d comment="blacklist" disabled=no</span></p><p><span style="font-family: courier;"><br /></span></p><p><span style="font-family: courier;">add chain=input protocol=tcp dst-port=22 connection-state=new \</span></p><p><span style="font-family: courier;">src-address-list=ssh_stage2 action=add-src-to-address-list address-list=ssh_stage3 \</span></p><p><span style="font-family: courier;">address-list-timeout=1m comment="ssh-stage3" disabled=no</span></p><p><span style="font-family: courier;"><br /></span></p><p><span style="font-family: courier;">add chain=input protocol=tcp dst-port=22 connection-state=new src-address-list=ssh_stage1 \</span></p><p><span style="font-family: courier;">action=add-src-to-address-list address-list=ssh_stage2 address-list-timeout=1m comment="ssh-stage2" disabled=no</span></p><p><span style="font-family: courier;"><br /></span></p><p><span style="font-family: courier;">add chain=input protocol=tcp dst-port=22 connection-state=new action=add-src-to-address-list \</span></p><p><span style="font-family: courier;">address-list=ssh_stage1 address-list-timeout=1m comment="" disabled=no</span></p>

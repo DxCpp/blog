@@ -1,0 +1,16 @@
+---
+layout: post
+title: Подсветка синтаксиса кода в Google Blogger
+date: '2021-05-08T21:02:00.009+03:00'
+author: Rishat
+tags:
+- Blogger
+- Google
+- Программирование
+modified_time: '2021-05-09T22:40:39.252+03:00'
+thumbnail: https://1.bp.blogspot.com/-xCp8wKnV8fw/YJbSGf-Y_wI/AAAAAAAA6cY/Y2vDivRx-X8A-EadaADL7uxMa9uYRakdQCLcBGAsYHQ/s72-w122-c-h93/Screenshot_6.png
+blogger_id: tag:blogger.com,1999:blog-632559424411275764.post-4644970285596793072
+blogger_orig_url: https://dxcpp.blogspot.com/2021/05/google-blogger.html
+---
+
+<p></p><div class="separator" style="clear: both; text-align: center;"><a href="https://1.bp.blogspot.com/-xCp8wKnV8fw/YJbSGf-Y_wI/AAAAAAAA6cY/Y2vDivRx-X8A-EadaADL7uxMa9uYRakdQCLcBGAsYHQ/s552/Screenshot_6.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" data-original-height="421" data-original-width="552" height="93" src="https://1.bp.blogspot.com/-xCp8wKnV8fw/YJbSGf-Y_wI/AAAAAAAA6cY/Y2vDivRx-X8A-EadaADL7uxMa9uYRakdQCLcBGAsYHQ/w122-h93/Screenshot_6.png" width="122" /></a></div>Подсветка синтаксиса кода на любом сайте или блоге довольно простая задача. Но если ваш блог сделан на Google Blogger задача становится намного сложнее. И простой поиск на эту тему выдает очень старые статьи, и способы описанные в них уже не работают.&nbsp;<p></p><p>Я нашел, довольна старый но зато работающий скрипт <a href="https://github.com/googlearchive/code-prettify" target="_blank">Prettify</a>, который лежит на GitHub. Там есть подробное описание и даже несколько рабочих <a href="https://raw.githack.com/google/code-prettify/master/styles/index.html" target="_blank">скинов</a> для него.</p><p>Пример кода на C++:</p> <pre class="prettyprint linenums lang-cpp">#include <cstdlib><br />#include <iostream><br />using namespace std;           <br />int Sum (int Num1, int Num2){<br />    int Res=Num1+Num2;<br />    return Res;<br />    }   <br />int main(int argc, char *argv[])<br />{<br />    int Num1, Num2;<br />    int Res;  <br />    cout << "A+B=C\n",<br />    cout << "Enter Number A: ", cin >> Num1;<br />    cout << "Enter Number B: ", cin >> Num2;<br />    Res=Sum(Num1, Num2);<br />    cout << "Sum = " << Res << "\n";<br />    system("PAUSE");<br />    return 0;<br />}<br /></pre> <p>Получается красивый код</p>
